@@ -1,7 +1,10 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:venue/screens/profilescreen.dart';
 import 'package:venue/widgets/styles.dart';
+import '../services/AuthenticationService.dart';
 import 'weddings.dart';
 import 'package:nice_buttons/nice_buttons.dart';
 
@@ -10,20 +13,23 @@ class HomePage extends StatefulWidget {
 
   @override
   State<HomePage> createState() => _HomePageState();
+
 }
 
 class _HomePageState extends State<HomePage> {
-  late final int _currentIndex;
+  late int _currentIndex;
   int _selected = 0;
   // final double _notchedValue = 5;
+
 
   @override
   void initState() {
     super.initState();
     _currentIndex = 0;
   }
+  User? user = FirebaseAuth.instance.currentUser;
 
-  void changePage(int? index) {
+  void changePage(int? index,) {
     setState(() {
       _currentIndex = index!;
       if (index == 3) {
@@ -33,16 +39,17 @@ class _HomePageState extends State<HomePage> {
         //     builder: (context) => ServiceScreen(),
         //   ),
         // );
-      } else if (index == 2) {
+      } else if (index == 2 && user != null) {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProfilePage(),
+            builder: (context) => UserProfilePage(user: user),
           ),
         );
       }
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
