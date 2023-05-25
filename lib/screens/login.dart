@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color.fromARGB(255, 239, 17, 1),
+        color: Color.fromARGB(255, 252, 113, 103),
         child: Center(
           child: Form(
             key: _key,
