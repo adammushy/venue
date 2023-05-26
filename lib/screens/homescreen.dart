@@ -55,156 +55,157 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var currentIndex;
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: 50,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Center(
-              child: Card(
-                elevation: 40,
-                child: Container(
-                  height: 250,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/lights.gif"),
-                          fit: BoxFit.cover)),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: SizedBox(
-                    height: 180,
-                    // child: Image(
-                    //   image: AssetImage("assets/images/lights.gif"),
-                    // ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 50,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Center(
+                  child: Card(
+                    elevation: 40,
+                    child: Container(
+                      height: 250,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/lights.gif"),
+                              fit: BoxFit.cover)),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: SizedBox(
+                        height: 180,
+                        // child: Image(
+                        //   image: AssetImage("assets/images/lights.gif"),
+                        // ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: NiceButtons(
-                    startColor: primaryColor,
-                    endColor: Color.fromARGB(210, 11, 0, 0),
-                    progressColor: Color.fromARGB(255, 223, 73, 73),
-                    borderColor: Color.fromARGB(47, 235, 57, 57),
-                    height: 150,
-                    width: 150,
-                    stretch: false,
-                    gradientOrientation: GradientOrientation.Horizontal,
-                    onTap: (finish) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  WeddingVenues()));
-                      print('On tap called');
-                    },
-                    child: Text(
-                      'Wedding Halls',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: NiceButtons(
+                      startColor: primaryColor,
+                      endColor: Color.fromARGB(210, 11, 0, 0),
+                      progressColor: Color.fromARGB(255, 223, 73, 73),
+                      borderColor: Color.fromARGB(47, 235, 57, 57),
+                      height: 150,
+                      width: 150,
+                      stretch: false,
+                      gradientOrientation: GradientOrientation.Horizontal,
+                      onTap: (finish) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    WeddingVenues()));
+                        print('On tap called');
+                      },
+                      child: Text(
+                        'Wedding Halls',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: NiceButtons(
-                    startColor: primaryColor,
-                    endColor: Color.fromARGB(210, 11, 0, 0),
-                    progressColor: Color.fromARGB(255, 223, 73, 73),
-                    borderColor: Color.fromARGB(47, 235, 57, 57),
-                    height: 150,
-                    width: 150,
-                    stretch: false,
-                    gradientOrientation: GradientOrientation.Horizontal,
-                    onTap: (finish) {
-                      print('On tap called');
-                    },
-                    child: Text(
-                      'Conference Halls',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: NiceButtons(
+                      startColor: primaryColor,
+                      endColor: Color.fromARGB(210, 11, 0, 0),
+                      progressColor: Color.fromARGB(255, 223, 73, 73),
+                      borderColor: Color.fromARGB(47, 235, 57, 57),
+                      height: 150,
+                      width: 150,
+                      stretch: false,
+                      gradientOrientation: GradientOrientation.Horizontal,
+                      onTap: (finish) {
+                        print('On tap called');
+                      },
+                      child: Text(
+                        'Conference Halls',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: NiceButtons(
-                    startColor: primaryColor,
-                    endColor: Color.fromARGB(210, 11, 0, 0),
-                    progressColor: Color.fromARGB(255, 223, 73, 73),
-                    borderColor: Color.fromARGB(47, 235, 57, 57),
-                    height: 150,
-                    width: 150,
-                    stretch: false,
-                    gradientOrientation: GradientOrientation.Horizontal,
-                    onTap: (finish) {
-                      print('On tap called');
-                    },
-                    child: Text(
-                      'Birthday Halls',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: NiceButtons(
+                      startColor: primaryColor,
+                      endColor: Color.fromARGB(210, 11, 0, 0),
+                      progressColor: Color.fromARGB(255, 223, 73, 73),
+                      borderColor: Color.fromARGB(47, 235, 57, 57),
+                      height: 150,
+                      width: 150,
+                      stretch: false,
+                      gradientOrientation: GradientOrientation.Horizontal,
+                      onTap: (finish) {
+                        print('On tap called');
+                      },
+                      child: Text(
+                        'Birthday Halls',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: NiceButtons(
-                    startColor: primaryColor,
-                    endColor: Color.fromARGB(210, 11, 0, 0),
-                    progressColor: Color.fromARGB(255, 223, 73, 73),
-                    borderColor: Color.fromARGB(47, 235, 57, 57),
-                    height: 150,
-                    width: 150,
-                    stretch: false,
-                    gradientOrientation: GradientOrientation.Horizontal,
-                    onTap: (finish) {
-                      print('On tap called');
-                    },
-                    child: Text(
-                      //  textAlign:TextAlign.left,
-                      'Multipurpose Halls',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: NiceButtons(
+                      startColor: primaryColor,
+                      endColor: Color.fromARGB(210, 11, 0, 0),
+                      progressColor: Color.fromARGB(255, 223, 73, 73),
+                      borderColor: Color.fromARGB(47, 235, 57, 57),
+                      height: 150,
+                      width: 150,
+                      stretch: false,
+                      gradientOrientation: GradientOrientation.Horizontal,
+                      onTap: (finish) {
+                        print('On tap called');
+                      },
+                      child: Text(
+                        //  textAlign:TextAlign.left,
+                        'Multipurpose Halls',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
+            ],
           ),
-          SizedBox(
-            height: 5,
-          ),
-        ],
+        ),
       ),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {},

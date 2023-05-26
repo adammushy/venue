@@ -13,7 +13,7 @@ class _WeddingVenuesState extends State<WeddingVenues> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(180, 105, 109, 0.2),
+      backgroundColor: Color.fromRGBO(241, 235, 235, 1),
       appBar: AppBar(title: Text("Weding venues")),
       body: SingleChildScrollView(
         child: Column(
@@ -28,6 +28,7 @@ class _WeddingVenuesState extends State<WeddingVenues> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Card(
+                        elevation: 15,
                         child: Row(
                           children: <Widget>[
                             Container(
@@ -68,8 +69,13 @@ class _WeddingVenuesState extends State<WeddingVenues> {
                       ),
                     ),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => DetailPage(wed.name,wed.location,wed.imgUrl)));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>ProductDetailsView(wed.name, wed.location, wed.imgUrl,wed.phone)
+                              // DetailPage(wed.name, wed.location, wed.imgUrl),
+                        ),
+                      );
                     },
                   );
                 }).toList(),
