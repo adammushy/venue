@@ -1,5 +1,7 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:venue/database/DatabaseManager.dart';
 import 'homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../services/AuthenticationService.dart';
@@ -17,12 +19,27 @@ class _UserProfilePageState extends State<UserProfilePage> {
   late int _currentIndex;
   int selected = 2;
 
+  final AuthenticationService _auth = AuthenticationService();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _currentIndex = 2;
+    // fetchUserData(widget.uid).then((data) {
+    //   setState(() {
+
+    //     userData = data;
+    //   });
+    // });
+    // fetchUserData();
   }
+
+  // fetchUserData() async {
+  //   dynamic userdata = await DatabaseManager().fetchUserData(uid);
+
+  //   if ( userdata ==null)
+  // }
 
   void changePage(int index) {
     setState(() {
@@ -52,7 +69,13 @@ class _UserProfilePageState extends State<UserProfilePage> {
         title: Text('User Profile'),
         automaticallyImplyLeading: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.logout_outlined))
+          IconButton(
+              onPressed: () async {
+                await _auth.logoutUser().then((result) {
+                  Navigator.of(context).pop(true);
+                });
+              },
+              icon: Icon(Icons.logout_outlined))
         ],
       ),
       // body: Padding(
@@ -77,8 +100,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
         child: Column(
           children: [
             Center(
-              child: CircleAvatar(
-                child: Image.asset("assests/images/8868.jpg"),
+              child: CircleAvatar(radius: 84,backgroundImage: AssetImage("assets/images/8868.jpg"),
+                // child: Image.asset("assets/images/8868.jpg"),
               ),
             ),
             // Row(
@@ -92,7 +115,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
               height: 20,
             ),
             Text(
-              'Email : ${widget.user!.displayName}',
+              'Name : ${widget.user!.email}',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),
             Divider(
@@ -120,45 +143,45 @@ class _UserProfilePageState extends State<UserProfilePage> {
           BubbleBottomBarItem(
               backgroundColor: Colors.red,
               icon: Icon(
-                Icons.dashboard,
+                Icons.home,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.dashboard,
+                Icons.home,
                 color: Colors.red,
               ),
               title: Text("Home")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.red,
               icon: Icon(
-                Icons.access_time,
+                Icons.feedback,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.access_time,
-                color: Colors.deepPurple,
+                Icons.feedback,
+                color: Colors.red,
               ),
-              title: Text("Logs")),
+              title: Text("Feedback")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.indigo,
+              backgroundColor: Colors.red,
               icon: Icon(
                 Icons.person,
                 color: Colors.black,
               ),
               activeIcon: Icon(
                 Icons.person_2,
-                color: Colors.indigo,
+                color: Colors.red,
               ),
-              title: Text("Folders")),
+              title: Text("Profile")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.red,
               icon: Icon(
                 Icons.menu,
                 color: Colors.black,
               ),
               activeIcon: Icon(
                 Icons.menu,
-                color: Colors.green,
+                color: Colors.red,
               ),
               title: Text("Menu"))
         ],

@@ -1,4 +1,5 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -9,27 +10,32 @@ import 'weddings.dart';
 import 'package:nice_buttons/nice_buttons.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  // final String uid;
+
+  const HomePage();
 
   @override
   State<HomePage> createState() => _HomePageState();
-
 }
 
 class _HomePageState extends State<HomePage> {
   late int _currentIndex;
   int _selected = 0;
-  // final double _notchedValue = 5;
+  Map<String, dynamic> userData = {};
 
+  // final double _notchedValue = 5;
 
   @override
   void initState() {
     super.initState();
     _currentIndex = 0;
   }
+
   User? user = FirebaseAuth.instance.currentUser;
 
-  void changePage(int? index,) {
+  void changePage(
+    int? index,
+  ) {
     setState(() {
       _currentIndex = index!;
       if (index == 3) {
@@ -49,7 +55,6 @@ class _HomePageState extends State<HomePage> {
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -94,54 +99,58 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: NiceButtons(
-                      startColor: primaryColor,
-                      endColor: Color.fromARGB(210, 11, 0, 0),
-                      progressColor: Color.fromARGB(255, 223, 73, 73),
-                      borderColor: Color.fromARGB(47, 235, 57, 57),
-                      height: 150,
-                      width: 150,
-                      stretch: false,
-                      gradientOrientation: GradientOrientation.Horizontal,
-                      onTap: (finish) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    WeddingVenues()));
-                        print('On tap called');
-                      },
-                      child: Text(
-                        'Wedding Halls',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: NiceButtons(
+                        startColor: primaryColor,
+                        endColor: Color.fromARGB(210, 11, 0, 0),
+                        progressColor: Color.fromARGB(255, 223, 73, 73),
+                        borderColor: Color.fromARGB(47, 235, 57, 57),
+                        height: 150,
+                        width: 150,
+                        stretch: false,
+                        gradientOrientation: GradientOrientation.Horizontal,
+                        onTap: (finish) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      WeddingVenues()));
+                          print('On tap called');
+                        },
+                        child: Text(
+                          'Wedding Halls',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: NiceButtons(
-                      startColor: primaryColor,
-                      endColor: Color.fromARGB(210, 11, 0, 0),
-                      progressColor: Color.fromARGB(255, 223, 73, 73),
-                      borderColor: Color.fromARGB(47, 235, 57, 57),
-                      height: 150,
-                      width: 150,
-                      stretch: false,
-                      gradientOrientation: GradientOrientation.Horizontal,
-                      onTap: (finish) {
-                        print('On tap called');
-                      },
-                      child: Text(
-                        'Conference Halls',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: NiceButtons(
+                        startColor: primaryColor,
+                        endColor: Color.fromARGB(210, 11, 0, 0),
+                        progressColor: Color.fromARGB(255, 223, 73, 73),
+                        borderColor: Color.fromARGB(47, 235, 57, 57),
+                        height: 150,
+                        width: 150,
+                        stretch: false,
+                        gradientOrientation: GradientOrientation.Horizontal,
+                        onTap: (finish) {
+                          print('On tap called');
+                        },
+                        child: Text(
+                          'Conference Halls',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),
@@ -151,50 +160,54 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: NiceButtons(
-                      startColor: primaryColor,
-                      endColor: Color.fromARGB(210, 11, 0, 0),
-                      progressColor: Color.fromARGB(255, 223, 73, 73),
-                      borderColor: Color.fromARGB(47, 235, 57, 57),
-                      height: 150,
-                      width: 150,
-                      stretch: false,
-                      gradientOrientation: GradientOrientation.Horizontal,
-                      onTap: (finish) {
-                        print('On tap called');
-                      },
-                      child: Text(
-                        'Birthday Halls',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: NiceButtons(
+                        startColor: primaryColor,
+                        endColor: Color.fromARGB(210, 11, 0, 0),
+                        progressColor: Color.fromARGB(255, 223, 73, 73),
+                        borderColor: Color.fromARGB(47, 235, 57, 57),
+                        height: 150,
+                        width: 150,
+                        stretch: false,
+                        gradientOrientation: GradientOrientation.Horizontal,
+                        onTap: (finish) {
+                          print('On tap called');
+                        },
+                        child: Text(
+                          'Birthday Halls',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: NiceButtons(
-                      startColor: primaryColor,
-                      endColor: Color.fromARGB(210, 11, 0, 0),
-                      progressColor: Color.fromARGB(255, 223, 73, 73),
-                      borderColor: Color.fromARGB(47, 235, 57, 57),
-                      height: 150,
-                      width: 150,
-                      stretch: false,
-                      gradientOrientation: GradientOrientation.Horizontal,
-                      onTap: (finish) {
-                        print('On tap called');
-                      },
-                      child: Text(
-                        //  textAlign:TextAlign.left,
-                        'Multipurpose Halls',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: NiceButtons(
+                        startColor: primaryColor,
+                        endColor: Color.fromARGB(210, 11, 0, 0),
+                        progressColor: Color.fromARGB(255, 223, 73, 73),
+                        borderColor: Color.fromARGB(47, 235, 57, 57),
+                        height: 150,
+                        width: 150,
+                        stretch: false,
+                        gradientOrientation: GradientOrientation.Horizontal,
+                        onTap: (finish) {
+                          print('On tap called');
+                        },
+                        child: Text(
+                          //  textAlign:TextAlign.left,
+                          'Multipurpose Halls',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),
@@ -227,45 +240,45 @@ class _HomePageState extends State<HomePage> {
           BubbleBottomBarItem(
               backgroundColor: Colors.red,
               icon: Icon(
-                Icons.dashboard,
+                Icons.home,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.dashboard,
+                Icons.home,
                 color: Colors.red,
               ),
               title: Text("Home")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.red,
               icon: Icon(
-                Icons.access_time,
+                Icons.feedback,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.access_time,
-                color: Colors.deepPurple,
+                Icons.feedback,
+                color: Colors.red,
               ),
-              title: Text("Logs")),
+              title: Text("Feedback")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.indigo,
+              backgroundColor: Colors.red,
               icon: Icon(
                 Icons.person,
                 color: Colors.black,
               ),
               activeIcon: Icon(
                 Icons.person_2,
-                color: Colors.indigo,
+                color: Colors.red,
               ),
-              title: Text("Folders")),
+              title: Text("Profile")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.red,
               icon: Icon(
                 Icons.menu,
                 color: Colors.black,
               ),
               activeIcon: Icon(
                 Icons.menu,
-                color: Colors.green,
+                color: Colors.red,
               ),
               title: Text("Menu"))
         ],

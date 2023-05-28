@@ -39,10 +39,10 @@ class _WeddingVenuesState extends State<WeddingVenues> {
                                   horizontal: 15,
                                 ),
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.purple,
-                                    width: 2,
-                                  ),
+                                  // border: Border.all(
+                                  //   color: Colors.purple,
+                                  //   width: 2,
+                                  // ),
                                 ),
                                 padding: EdgeInsets.all(1),
                                 child: Image.asset(wed.imgUrl)),
@@ -72,7 +72,7 @@ class _WeddingVenuesState extends State<WeddingVenues> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>ProductDetailsView(wed.name, wed.location, wed.imgUrl,wed.phone)
+                          builder: (context) =>ProductDetailsView(wed.name, wed.location, wed.imgUrl,wed.phone,wed.image)
                               // DetailPage(wed.name, wed.location, wed.imgUrl),
                         ),
                       );

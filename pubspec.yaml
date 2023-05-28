@@ -44,7 +44,9 @@ dependencies:
   fluttertoast: ^8.0.8
   nice_buttons: ^0.0.2
   # flutter_login_template
-  shared_preferences: ^2.0.15
+  # shared_preferences: ^2.0.15
+  flutter_phone_direct_caller: ^2.0.0
+
   firebase_auth: ^4.6.1
   cloud_firestore: ^4.7.1
   firebase_core: ^2.13.0
@@ -52,7 +54,6 @@ dependencies:
   get: ^4.6.5
   hexcolor: ^3.0.1
   url_launcher: ^6.1.11
-  flutter_phone_direct_caller: ^2.1.1
 
 dev_dependencies:
   flutter_test:

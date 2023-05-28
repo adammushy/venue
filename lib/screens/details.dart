@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import '../screens/weddings.dart';
@@ -6,104 +8,123 @@ import 'package:nice_buttons/nice_buttons.dart';
 import '../widgets/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailPage extends StatelessWidget {
-  final name;
-  final location;
-  final imgUrl;
-  const DetailPage(this.name, this.location, this.imgUrl);
+// class DetailPage extends StatelessWidget {
+//   final name;
+//   final location;
+//   final imgUrl;
+//   const DetailPage(this.name, this.location, this.imgUrl);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      drawer: Drawer(
-        semanticLabel: "Menu",
-        elevation: 2,
-        child: drawContent(),
-        backgroundColor: Color.fromARGB(255, 147, 148, 149),
-      ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 50,
-          ),
-          Container(
-            child: Image.asset(imgUrl),
-          ),
-          Text(name),
-          Text(location)
-        ],
-      ),
-    );
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(),
+//       drawer: Drawer(
+//         semanticLabel: "Menu",
+//         elevation: 2,
+//         child: drawContent(),
+//         backgroundColor: Color.fromARGB(255, 147, 148, 149),
+//       ),
+//       body: Column(
+//         children: [
+//           SizedBox(
+//             height: 50,
+//           ),
+//           Container(
+//             child: Image.asset(imgUrl),
+//           ),
+//           Text(name),
+//           Text(location)
+//         ],
+//       ),
+//     );
+//   }
 
-  Widget drawContent() {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 100,
-          ),
-          NiceButtons(
-            startColor: primaryColor,
-            endColor: Color.fromARGB(210, 11, 0, 0),
-            progressColor: Color.fromARGB(255, 223, 73, 73),
-            borderColor: Color.fromARGB(47, 235, 57, 57),
-            height: 50,
-            stretch: true,
-            gradientOrientation: GradientOrientation.Horizontal,
-            onTap: (finish) {
-              print('On tap called');
-            },
-            child: Text(
-              'Full Width',
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-          ),
-          NiceButtons(
-            startColor: primaryColor,
-            endColor: Color.fromARGB(210, 11, 0, 0),
-            progressColor: Color.fromARGB(255, 223, 73, 73),
-            borderColor: Color.fromARGB(47, 235, 57, 57),
-            height: 50,
-            stretch: true,
-            gradientOrientation: GradientOrientation.Horizontal,
-            onTap: (finish) {
-              print('On tap called');
-            },
-            child: Text(
-              'Full Width',
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   Widget drawContent() {
+//     return Container(
+//       child: Column(
+//         children: [
+//           SizedBox(
+//             height: 100,
+//           ),
+//           NiceButtons(
+//             startColor: primaryColor,
+//             endColor: Color.fromARGB(210, 11, 0, 0),
+//             progressColor: Color.fromARGB(255, 223, 73, 73),
+//             borderColor: Color.fromARGB(47, 235, 57, 57),
+//             height: 50,
+//             stretch: true,
+//             gradientOrientation: GradientOrientation.Horizontal,
+//             onTap: (finish) {
+//               print('On tap called');
+//             },
+//             child: Text(
+//               'Full Width',
+//               style: TextStyle(color: Colors.white, fontSize: 18),
+//             ),
+//           ),
+//           NiceButtons(
+//             startColor: primaryColor,
+//             endColor: Color.fromARGB(210, 11, 0, 0),
+//             progressColor: Color.fromARGB(255, 223, 73, 73),
+//             borderColor: Color.fromARGB(47, 235, 57, 57),
+//             height: 50,
+//             stretch: true,
+//             gradientOrientation: GradientOrientation.Horizontal,
+//             onTap: (finish) {
+//               print('On tap called');
+//             },
+//             child: Text(
+//               'Full Width',
+//               style: TextStyle(color: Colors.white, fontSize: 18),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class ProductDetailsView extends StatefulWidget {
   final name;
   final location;
   final imgUrl;
   final phone;
-  ProductDetailsView(this.name, this.location, this.imgUrl, this.phone);
+  final List image;
+  ProductDetailsView(this.name, this.location, this.imgUrl, this.phone,this.image);
 
   @override
   State<ProductDetailsView> createState() => _ProductDetailsViewState();
 }
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
+  // @override
 
-  @override
-  void _makePhoneCall(String phoneNumber) async {
-    String url = 'tel:$phoneNumber';
-    
+  makeDirectCall(String number) async {
+    await FlutterPhoneDirectCaller.callNumber(number);
+  }
+
+  void makePhoneCall(String phoneNumber) async {
+    final url = 'tel:$phoneNumber';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      // Handle error or show a message that the call couldn't be made
+    }
+  }
+
+  void launchCall(String phone) async {
+    String url = "tel:" + phone;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      print(' Could not launch $url');
+    }
   }
 
   // final ProductController productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
+    var i;
     return Scaffold(
       backgroundColor: AppColors.kBgColor,
       appBar: AppBar(
@@ -132,7 +153,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
             height: MediaQuery.of(context).size.height * .35,
             padding: const EdgeInsets.only(bottom: 30),
             width: double.infinity,
-            child: Image.asset(widget.imgUrl),
+            child: Image.asset(widget.imgUrl,),
           ),
           Expanded(
             child: Stack(
@@ -253,9 +274,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   border: Border.all(color: AppColors.kGreyColor),
                 ),
                 child: IconButton(
-                    onPressed: () => launchUrl(widget.phone)
-                      // _makePhoneCall(widget.phone);
-                      
+                    onPressed: () => makeDirectCall(widget.phone)
+                    // _makePhoneCall(widget.phone);
+
                     ,
                     icon: Icon(Ionicons.call))),
             SizedBox(width: 20),
