@@ -2,13 +2,18 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:venue/screens/feedback.dart';
 import 'package:venue/screens/profilescreen.dart';
 import 'package:venue/services/AuthenticationService.dart';
+import 'package:venue/widgets/therme_notifier.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
+
 import '../widgets/styles.dart';
 
 class Settings extends StatefulWidget {
   final User? user;
-  const Settings({super.key , required this.user});
+  const Settings({super.key, required this.user});
 
   @override
   State<Settings> createState() => _SettingsState();
@@ -16,11 +21,17 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   final AuthenticationService _auth = AuthenticationService();
-  
+
   get user => null;
   // final AuthenticationService user = AuthenticationService();
   @override
   Widget build(BuildContext context) {
+    // final themeNotifier = Provider.of<ThemeNotifier>(context);
+
+    // void toggleDarkMode(bool value) {
+    //   themeNotifier.toggleDarkMode(value);
+    // }
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -70,6 +81,7 @@ class _SettingsState extends State<Settings> {
                     // ),
                     title: 'Dark mode',
                     subtitle: "Automatic",
+
                     trailing: Switch.adaptive(
                       value: false,
                       onChanged: (value) {},
@@ -87,6 +99,24 @@ class _SettingsState extends State<Settings> {
                     // ),
                     title: 'About',
                     subtitle: "Learn more about Ziar'App",
+                  ),
+                ],
+              ),
+              SettingsGroup(
+                items: [
+                  SettingsItem(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FeedbackDialog()));
+                    },
+                    icons: Icons.feedback,
+                    // iconStyle: IconStyle(
+                    //   backgroundColor: Colors.purple,
+                    // ),
+                    title: 'Feedback',
+                    subtitle: "Rate us",
                   ),
                 ],
               ),

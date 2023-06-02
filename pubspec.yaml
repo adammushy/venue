@@ -56,6 +56,8 @@ dependencies:
   url_launcher: ^6.1.11
   connectivity: ^3.0.6
   babstrap_settings_screen: ^0.1.5+1
+  provider: ^6.0.5
+  flutter_svg: ^2.0.5
 
 dev_dependencies:
   flutter_test:

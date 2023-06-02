@@ -16,24 +16,23 @@ class AppColors {
   static HexColor kSmProductBgColor = HexColor('f9f9f9');
 }
 
-// class IconStyle {
-//   Color? iconsColor;
-//   bool? withBackground;
-//   Color? backgroundColor;
-//   double? borderRadius;
 
-//   IconStyle({
-//     iconsColor = Colors.white,
-//     withBackground = true,
-//     backgroundColor = Colors.blue,
-//     borderRadius = 8,
-//   })  : this.iconsColor = iconsColor,
-//         this.withBackground = withBackground,
-//         this.backgroundColor = backgroundColor,
-//         this.borderRadius = double.parse(borderRadius!.toString());
-// }
 
-// class SettingsScreenUtils {
-//   static double? settingsGroupIconSize;
-//   static TextStyle? settingsGroupTitleStyle;
-// }
+
+class AppThemes {
+  static final lightTheme = ThemeData(
+    brightness: Brightness.light,
+    // Define your light theme colors, typography, etc.
+    // Example:
+    primaryColor: Colors.blue,
+    accentColor: Colors.blueAccent,
+  );
+
+  static final darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    // Define your dark theme colors, typography, etc.
+    // Example:
+    primaryColor: Colors.indigo,
+    accentColor: Colors.indigoAccent,
+  );
+}

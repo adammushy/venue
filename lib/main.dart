@@ -4,7 +4,12 @@ import 'package:venue/screens/weddings.dart';
 import 'screens/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+// import 'package:venue/theme_notifier.dart';
+// import 'package:venue/theme.dart';
+import 'package:provider/provider.dart';
+import 'package:path_provider/path_provider.dart';
+import 'widgets/styles.dart';
+import 'widgets/therme_notifier.dart';
 
 import 'screens/registration.dart';
 import 'screens/login.dart';
