@@ -155,7 +155,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
             height: MediaQuery.of(context).size.height * .35,
             padding: const EdgeInsets.only(bottom: 30),
             width: double.infinity,
-            child: Image.asset(widget.imgUrl,),
+            child: Image.asset(widget.imgUrl,fit: BoxFit.cover,),
           ),
           Expanded(
             child: Stack(
