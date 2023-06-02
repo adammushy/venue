@@ -7,7 +7,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../services/AuthenticationService.dart';
 
 class UserProfilePage extends StatefulWidget {
-  final User? user; // User object retrieved from Firebase
+  User? user = FirebaseAuth.instance.currentUser;
+  // User object retrieved from Firebase
 
   UserProfilePage({required this.user});
 
@@ -100,7 +101,10 @@ class _UserProfilePageState extends State<UserProfilePage> {
         child: Column(
           children: [
             Center(
-              child: CircleAvatar(radius: 84,backgroundImage: AssetImage("assets/images/8868.jpg"),
+              child: CircleAvatar(
+                radius: 84,
+                // backgroundImage: AssetImage("assets/images/8868.jpg"),
+                backgroundImage: NetworkImage(widget.user!.photoURL.toString() ),
                 // child: Image.asset("assets/images/8868.jpg"),
               ),
             ),
@@ -115,7 +119,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
               height: 20,
             ),
             Text(
-              'Name : ${widget.user!.email}',
+              'Name : ${widget.user!.displayName}',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),
             Divider(

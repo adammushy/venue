@@ -42,9 +42,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home:TabNavigation() ,
+      // home:TabNavigation() ,
       // home: RegistrationScreen(),
-      // home: LoginScreen(),
+      home: LoginScreen(),
       // home:const SplashScreen(),
       // home:const WeddingVenues(),
     );

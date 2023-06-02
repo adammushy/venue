@@ -27,12 +27,11 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       // appBar: AppBar(
       //   title: Text('About Us'),
       // ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
         child: Column(
           children: [
-    //   
-      Text(
+          //   
+        Text(
               'Welcome to our Venue Find Booking App!',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),

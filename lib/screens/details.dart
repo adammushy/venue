@@ -90,7 +90,8 @@ class ProductDetailsView extends StatefulWidget {
   final imgUrl;
   final phone;
   final List image;
-  ProductDetailsView(this.name, this.location, this.imgUrl, this.phone,this.image);
+  ProductDetailsView(
+      this.name, this.location, this.imgUrl, this.phone, this.image);
 
   @override
   State<ProductDetailsView> createState() => _ProductDetailsViewState();
@@ -132,22 +133,22 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
-                  Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
           icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Ionicons.bag_outline,
-              color: Colors.black,
-            ),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {},
+        //     icon: const Icon(
+        //       Ionicons.bag_outline,
+        //       color: Colors.black,
+        //     ),
+        //   ),
+        // ],
       ),
       body: Column(
         children: [
@@ -155,7 +156,10 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
             height: MediaQuery.of(context).size.height * .35,
             padding: const EdgeInsets.only(bottom: 30),
             width: double.infinity,
-            child: Image.asset(widget.imgUrl,fit: BoxFit.cover,),
+            child: Image.asset(
+              widget.imgUrl,
+              fit: BoxFit.cover,
+            ),
           ),
           Expanded(
             child: Stack(
@@ -281,7 +285,26 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
 
                     ,
                     icon: Icon(Ionicons.call))),
-            SizedBox(width: 20),
+            // SizedBox(width: 20),r
+            Container(
+              width: 50,
+              height: 50,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: AppColors.kGreyColor),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  print("Location fetched");
+                },
+                // onPressed: () => makeDirectCall(widget.phone),
+                // _makePhoneCall(widget.phone);
+
+                icon: Icon(Ionicons.location),
+              ),
+            ),
+
             // Expanded(
             //   child: InkWell(
             //     onTap: () {
