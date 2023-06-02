@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:venue/screens/dashboard.dart';
 import 'package:venue/screens/weddings.dart';
 import 'screens/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,10 +35,11 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
+      home:TabNavigation() ,
       // home: RegistrationScreen(),
-      home: LoginScreen(),
+      // home: LoginScreen(),
       // home:const SplashScreen(),
       // home:const WeddingVenues(),
     );

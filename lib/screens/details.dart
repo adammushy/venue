@@ -131,7 +131,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
         backgroundColor: AppColors.kBgColor,
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+                  Navigator.of(context).pop();
+          },
           icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,

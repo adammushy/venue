@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:connectivity/connectivity.dart';
 import 'registration.dart';
 import '../services/AuthenticationService.dart';
 import 'homescreen.dart';
@@ -126,17 +127,55 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void signInUser() async {
-    dynamic authResult =
-        await _auth.loginUser(_emailContoller.text, _passwordController.text);
-    if (authResult == null) {
-      print('Sign in error. could not be able to login');
-      
-    } else {
-      _emailContoller.clear();
-      _passwordController.clear();
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
-    }
+void signInUser() async {
+  // Check network connectivity
+  var connectivityResult = await Connectivity().checkConnectivity();
+  if (connectivityResult == ConnectivityResult.none) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('No Internet Connection'),
+        content: Text('Please check your internet connection and try again.'),
+        actions: [
+          TextButton(
+            child: Text('OK'),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ],
+      ),
+    );
+    return;
   }
+
+  // Perform user login
+  dynamic authResult = await _auth.loginUser(
+    _emailContoller.text,
+    _passwordController.text,
+  );
+
+  if (authResult == null) {
+    print('Sign in error. Could not be able to login');
+  } else {
+    _emailContoller.clear();
+    _passwordController.clear();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
+}
+
+  // void signInUser() async {
+  //   dynamic authResult =
+  //       await _auth.loginUser(_emailContoller.text, _passwordController.text);
+  //   if (authResult == null) {
+  //     print('Sign in error. could not be able to login');
+      
+  //   } else {
+  //     _emailContoller.clear();
+  //     _passwordController.clear();
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => HomePage()));
+  //   }
+  // }
 }

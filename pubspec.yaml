@@ -54,6 +54,8 @@ dependencies:
   get: ^4.6.5
   hexcolor: ^3.0.1
   url_launcher: ^6.1.11
+  connectivity: ^3.0.6
+  babstrap_settings_screen: ^0.1.5+1
 
 dev_dependencies:
   flutter_test:
