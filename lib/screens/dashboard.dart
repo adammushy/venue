@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:venue/screens/about.dart';
+import 'package:venue/screens/contact.dart';
 import 'package:venue/screens/details.dart';
 import 'package:venue/screens/homescreen.dart';
 import 'package:venue/screens/profilescreen.dart';
@@ -41,8 +42,8 @@ class _TabNavigationState extends State<TabNavigation> {
               //   text: 'Profile',
               // ),
               Tab(
-                icon: Icon(Icons.info),
-                text: 'About us ',
+                icon: Icon(Icons.contact_mail),
+                text: 'Contack',
               ),
               Tab(
                 icon: Icon(Icons.settings),
@@ -59,7 +60,8 @@ class _TabNavigationState extends State<TabNavigation> {
             // SettingsItem(icons: icons, title: title),
             // HomeTab(),
             // UserProfilePage(user: user),
-            AboutUsScreen(),
+            // AboutUsScreen(),
+            Contact(),
             Settings(user: user,),
 
             // SearchTab(),

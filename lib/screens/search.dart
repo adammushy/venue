@@ -3,8 +3,6 @@ import 'package:venue/screens/details.dart';
 
 import '../models/weddingmodel.dart';
 
-
-
 class SearchTab extends StatefulWidget {
   @override
   _SearchTabState createState() => _SearchTabState();
@@ -20,6 +18,8 @@ class _SearchTabState extends State<SearchTab> {
     // Combine the weddings and birthdays lists into one data list
     data.addAll(weddings);
     data.addAll(birthdays);
+    data.addAll(conferences);
+    data.addAll(multipurposes);
   }
 
   void search(String query) {
@@ -73,7 +73,8 @@ class _SearchTabState extends State<SearchTab> {
                               wedding.location,
                               wedding.imgUrl,
                               wedding.phone,
-                              wedding.image),
+                              wedding.description,
+                              wedding.price),
                         ),
                       );
 

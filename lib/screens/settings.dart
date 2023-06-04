@@ -2,6 +2,7 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:venue/screens/about.dart';
 import 'package:venue/screens/feedback.dart';
 import 'package:venue/screens/profilescreen.dart';
 import 'package:venue/services/AuthenticationService.dart';
@@ -92,13 +93,18 @@ class _SettingsState extends State<Settings> {
               SettingsGroup(
                 items: [
                   SettingsItem(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AboutUsScreen()));
+                    },
                     icons: Icons.info_rounded,
                     // iconStyle: IconStyle(
                     //   backgroundColor: Colors.purple,
                     // ),
                     title: 'About',
-                    subtitle: "Learn more about Ziar'App",
+                    subtitle: "Learn more about Venue app",
                   ),
                 ],
               ),
@@ -133,15 +139,15 @@ class _SettingsState extends State<Settings> {
                     icons: Icons.exit_to_app_rounded,
                     title: "Sign Out",
                   ),
-                  SettingsItem(
-                    onTap: () {},
-                    icons: CupertinoIcons.delete_solid,
-                    title: "Delete account",
-                    titleStyle: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  // SettingsItem(
+                  //   onTap: () {},
+                  //   icons: CupertinoIcons.delete_solid,
+                  //   title: "Delete account",
+                  //   titleStyle: TextStyle(
+                  //     color: Colors.red,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
                 ],
               ),
             ],

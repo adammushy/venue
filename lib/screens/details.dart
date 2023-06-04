@@ -89,9 +89,11 @@ class ProductDetailsView extends StatefulWidget {
   final location;
   final imgUrl;
   final phone;
-  final List image;
+  // final List image;
+  final description;
+  final price;
   ProductDetailsView(
-      this.name, this.location, this.imgUrl, this.phone, this.image);
+      this.name, this.location, this.imgUrl, this.phone,this.description,this.price);
 
   @override
   State<ProductDetailsView> createState() => _ProductDetailsViewState();
@@ -195,7 +197,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                               ),
                             ),
                             Text(
-                              widget.phone,
+                              "${widget.price} Tshs.",
                               style: GoogleFonts.poppins(
                                 fontSize: 22,
                                 fontWeight: FontWeight.w600,
@@ -205,7 +207,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                         ),
                         const SizedBox(height: 15),
                         Text(
-                          widget.location,
+                          widget.description,
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             color: Colors.grey,

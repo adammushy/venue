@@ -2,6 +2,9 @@ import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:venue/screens/birthday.dart';
+import 'package:venue/screens/conference.dart';
+import 'package:venue/screens/multipurpose.dart';
 
 import 'package:venue/screens/profilescreen.dart';
 import 'package:venue/widgets/styles.dart';
@@ -142,6 +145,11 @@ class _HomePageState extends State<HomePage> {
                         stretch: false,
                         gradientOrientation: GradientOrientation.Horizontal,
                         onTap: (finish) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      ConferenceVenue()));
                           print('On tap called');
                         },
                         child: Text(
@@ -173,6 +181,11 @@ class _HomePageState extends State<HomePage> {
                         stretch: false,
                         gradientOrientation: GradientOrientation.Horizontal,
                         onTap: (finish) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      BirthdayVenues()));
                           print('On tap called');
                         },
                         child: Text(
@@ -198,6 +211,12 @@ class _HomePageState extends State<HomePage> {
                         stretch: false,
                         gradientOrientation: GradientOrientation.Horizontal,
                         onTap: (finish) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      MultipurposeVenue()));
+
                           print('On tap called');
                         },
                         child: Text(

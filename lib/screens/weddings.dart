@@ -72,7 +72,7 @@ class _WeddingVenuesState extends State<WeddingVenues> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>ProductDetailsView(wed.name, wed.location, wed.imgUrl,wed.phone,wed.image)
+                          builder: (context) =>ProductDetailsView(wed.name, wed.location, wed.imgUrl,wed.phone,wed.description,wed.price)
                               // DetailPage(wed.name, wed.location, wed.imgUrl),
                         ),
                       );

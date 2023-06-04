@@ -3,20 +3,21 @@ import 'package:flutter/material.dart';
 import '../models/weddingmodel.dart';
 import 'details.dart';
 
-class ConferenceVenue extends StatefulWidget {
-  const ConferenceVenue({super.key});
+
+
+class MultipurposeVenue extends StatefulWidget {
+  const MultipurposeVenue({super.key});
 
   @override
-  State<ConferenceVenue> createState() => _ConferenceVenueState();
+  State<MultipurposeVenue> createState() => _MultipurposeVenueState();
 }
 
-class _ConferenceVenueState extends State<ConferenceVenue> {
+class _MultipurposeVenueState extends State<MultipurposeVenue> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Conference venue"),) ,
-      // drawer: Drawer(child: row),
-      body: SafeArea(
+      appBar: AppBar(title:Text("Multipurpose") ),
+      body:SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -25,7 +26,7 @@ class _ConferenceVenueState extends State<ConferenceVenue> {
               ),
               SingleChildScrollView(
                 child: Column(
-                  children: conferences.map((wed) {
+                  children: multipurposes.map((wed) {
                     return GestureDetector(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
