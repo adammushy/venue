@@ -58,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
                 );
               },
               child: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/8868.jpg"),
+                backgroundImage: AssetImage("assets/images/venue.jpg"),
                 radius: 100,
               ),
             ),

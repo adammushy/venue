@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
       ),
       // home:TabNavigation() ,
       // home: RegistrationScreen(),
-      home: LoginScreen(),
-      // home:const SplashScreen(),
+      // home: LoginScreen(),
+      home:const SplashScreen(),
       // home:const WeddingVenues(),
     );
   }
