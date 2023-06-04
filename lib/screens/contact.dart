@@ -17,11 +17,11 @@ class _ContactState extends State<Contact> {
     return Scaffold(
       body: Column(children: [
         SocialWidget(
-          placeholderText: 'akshitmadan_', //text visible to viewers
+          placeholderText: 'Christina_', //text visible to viewers
           iconData:
               SocialIconsFlutter.instagram, //use the respective social logo
           iconColor: Colors.pink, //(optional, default - grey)
-          link: 'https://www.instagram.com/akshitmadan_/', //provide the link
+          link: 'https://www.instagram.com/chriva13_/', //provide the link
           placeholderStyle: TextStyle(
               color: Colors.black, fontSize: 20), //placeholder text style
         ),
@@ -35,11 +35,11 @@ class _ContactState extends State<Contact> {
               color: Colors.black, fontSize: 20), //placeholder text style
         ),
         SocialWidget(
-          placeholderText: 'akshitmadan_', //text visible to viewers
+          placeholderText: 'CHRISTINA JOSEPH_', //text visible to viewers
           iconData:
               SocialIconsFlutter.youtube, //use the respective social logo
           iconColor: Colors.pink, //(optional, default - grey)
-          link: 'https://www.instagram.com/akshitmadan_/', //provide the link
+          link: 'https://www.youTube.com/CHRISTINA_JOSEPH_/', //provide the link
           placeholderStyle: TextStyle(
               color: Colors.black, fontSize: 20), //placeholder text style
         ),
