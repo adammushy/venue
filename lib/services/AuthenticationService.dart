@@ -171,7 +171,7 @@ class AuthenticationService {
   //   }
   // }
 
-  Future loginUser(String email, String password) async {
+  Future loginUser(String email, String password, String name) async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);

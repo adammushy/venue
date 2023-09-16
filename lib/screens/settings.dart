@@ -6,9 +6,9 @@ import 'package:venue/screens/about.dart';
 import 'package:venue/screens/feedback.dart';
 import 'package:venue/screens/profilescreen.dart';
 import 'package:venue/services/AuthenticationService.dart';
-import 'package:venue/widgets/therme_notifier.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:provider/provider.dart';
+// import 'package:venue/widgets/therme_notifier.dart';
+// import 'package:path_provider/path_provider.dart';
+// import 'package:provider/provider.dart';
 
 import '../widgets/styles.dart';
 
